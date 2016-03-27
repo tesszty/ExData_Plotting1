@@ -8,7 +8,9 @@ mydata<- data[data$Date=="1/2/2007" | data$Date=="2/2/2007",]
 
 head(mydata)
 mydata$Date <- as.Date(mydata$Date, format="%d/%m/%Y")
-mydata$Time <- strptime(mydata$Time, format="%Y-%m-%d %H:%M:%S")
+mydata$Time <- strptime(paste(mydata$Date, mydata$Time), format="%Y-%m-%d %H:%M:%S")
+
+
 
 head(mydata)
 
@@ -17,4 +19,3 @@ head(mydata)
 rm(data)
 
 ##remove the larger, original table
-
